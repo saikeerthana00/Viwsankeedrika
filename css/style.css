@@ -1,0 +1,128 @@
+body{
+    background-image:url(https://factordaily.com/wp-content/uploads/2017/03/UR_Rao_mars-1.jpg);
+    background-attachment: fixed;
+    background-size:cover;
+}
+h1{
+	text-align:center;
+	font-size:50px;
+}
+td {
+	border:  2px solid #333;
+	height:  100px;
+    width:  100px;
+    border-width: 4px;
+	text-align:  center;
+	vertical-align:  middle;
+	font-family:  "Comic Sans MS", cursive, sans-serif;
+	font-size:  70px;
+	cursor: pointer;
+}
+td:hover {
+	background-color:rgb(231, 168, 84)	;
+	}
+
+table {
+	border-collapse: collapse;
+	position: absolute;
+	left: 50%;
+    margin-left:325px;
+    margin-top: 125px;
+    top: 50px;
+}
+
+.endgame {
+  display: none;
+  width: 200px;
+  top: 120px;
+  background-color: rgba(205,133,63, 0.8);
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-size: 2em;
+}
+
+.button {
+	display: inline-block;
+	border-radius: 4px;
+	background-color: #3f3692;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 18px;
+	padding: 10px;
+	width: 260px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+	margin-top: -10px;
+	margin-left: 100px;
+  }
+  
+  .button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+  }
+  
+  .button span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+  }
+  
+  .button:hover span {
+	padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+	opacity: 1;
+	right: 0;
+  }
+#ico{
+	font-size: 120px;
+	margin-left:160px;
+  }
+  #ai{
+	width: 115px;
+	margin-left: 160px;
+	margin-top: -10px;
+  }
+.options{
+	cursor: pointer;
+	border-color: rgb(24, 15, 15);
+	border-radius: 2px;
+	font-style: italic;
+	font-weight: bold;
+	background-color: rgb(202, 147, 96);
+}
+@media only screen and (max-width: 1290px){
+	table{
+    margin-left:100px;
+	}
+}
+@media only screen and (max-width: 900px){
+	table{
+    margin-left:40px;
+	}
+}
+@media only screen and (max-width: 600px){
+	table{
+   position:relative;
+   top:10px;
+	margin-left:-150px!important;
+	margin-bottom:100px;
+	}
+	.button ,hr,img,.choices,#ico,#ai{
+		margin-left:10%!important;
+	}
+}

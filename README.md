@@ -1,0 +1,72 @@
+# Viwsankeedrika
+#### Microsoft(The mars colonization program)
+
+Viwsankeedrika is an online Tic-Tac-Toe game built by four IIT Kharagpur students.
+## Features and Functionalities of Viwsankeedrika:
+    
+There are two modes to play this game -
+### 1) Human Player
+In this mode, you can play with other astronauts in your crew.
+It is a simple Tic-Tac-Toe game that you play with your colleague without any complex algorithms.
+### 2) AI player
+In this mode, the astronaut plays with the computer as his opponent. 
+It is an unbeatable AI which makes the astronaut impossible to win the game. He might get lucky in mars rover mission but cannot win this game.
+This mode uses the Minimax Algorithm to achieve the required unbeatable nature of it.
+#### Minimax Algorithm in our code:
+The function which uses the minimax algorithm is:
+
+    function minimax(newBoard, player) {
+    
+    var availSpots = emptySquares();
+	 
+		if (checkWin(newBoard, huPlayer)) {
+	    return {score: -10};
+		} 
+    else if (checkWin(newBoard, aiPlayer)) {
+	    return {score: 10};
+		} 
+    else if (availSpots.length === 0) {
+	    return {score: 0};
+		}
+		var moves = [];
+		for (var i = 0; i < availSpots.length; i++) {
+	  var move = {};
+	  move.index = newBoard[availSpots[i]];
+	  newBoard[availSpots[i]] = player;
+	 
+	 if (player == aiPlayer) {
+	 var result = minimax(newBoard, huPlayer);
+	 move.score = result.score;
+	 } 
+    else {
+	  var result = minimax(newBoard, aiPlayer);
+	  move.score = result.score;
+	 }
+	 
+	 newBoard[availSpots[i]] = move.index;
+	 moves.push(move);
+		}
+	 
+		var bestMove;
+		if(player === aiPlayer) {
+	   var bestScore = -10000;
+	   for(var i = 0; i < moves.length; i++) {
+	     if (moves[i].score > bestScore) {
+	      bestScore = moves[i].score;
+	      bestMove = i;
+	    }
+	 }
+		} 
+    else {
+	   var bestScore = 10000;
+	   for(var i = 0; i < moves.length; i++) {
+	   if (moves[i].score < bestScore) {
+	   bestScore = moves[i].score;
+	   bestMove = i;
+	  }
+	 }
+	}
+	 return moves[bestMove];
+	}
+
+In this way, this function returns the best move of the computer.
