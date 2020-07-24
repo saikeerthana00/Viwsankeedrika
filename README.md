@@ -96,11 +96,11 @@ The player has the flexibility to choose his representation in the game, either 
 ## Flow of the project
 ### AI mode 
 
-<img src="images/Screenshot%20(366).png" width="300" height="300"> <img src="images/Screenshot%20(367).png" width="300" height="300">
+<img src="images/Screenshot%20(366).png" width="300" height="300">      <img src="images/Screenshot%20(367).png" width="300" height="300">
 
 ### HUMAN PLAYER
 
-<img src="images/Screenshot%20(368).png" width="300" height="300"> <img src="images/Screenshot%20(369).png" width="300" height="300">
+<img src="images/Screenshot%20(368).png" width="300" height="300">      <img src="images/Screenshot%20(369).png" width="300" height="300">
 
 ### RESULTS OF HUMAN PLAYER - FINISH GAME 
 
