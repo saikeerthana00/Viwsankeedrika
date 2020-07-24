@@ -8,7 +8,11 @@ There are two modes to play this game -
 ### 1) Human Player
 In this mode, you can play with other astronauts in your crew.
 It is a simple Tic-Tac-Toe game that you play with your colleague without any complex algorithms.
-### 2) AI player
+### 2) Finish Game
+Viwsankeedrika has a Finish game option for human player. The result of the games played in human mode from top will be displayed 
+on clicking this button.
+Eg: In the set of 3 games if player 1 won two games and player 2 won one game then on clicking finish game "Player 1 wins" will be displayed. 
+### 3) AI player
 In this mode, the astronaut plays with the computer as his opponent. 
 It is an unbeatable AI which makes the astronaut impossible to win the game. He might get lucky in mars rover mission but cannot win this game.
 This mode uses the Minimax Algorithm to achieve the required unbeatable nature of it.
@@ -70,3 +74,13 @@ The function which uses the minimax algorithm is:
 	}
 
 In this way, this function returns the best move of the computer.
+
+### 4) Time Display
+After completion of each game with computer the time taken will also be displayed if the result is tie.
+Now you can have scientific tournaments with your crew members even in the AI mode of play.
+### 5) Choose your choice:
+The player has the flexibility to choose his representation in the game, either X or O.
+
+##### References 
+https://www.freecodecamp.org/news/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37/
+
