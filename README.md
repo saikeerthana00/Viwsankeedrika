@@ -95,9 +95,15 @@ Now you can have scientific tournaments with your crew members even in the AI mo
 The player has the flexibility to choose his representation in the game, either X or O.
 ## Flow of the project
 AI mode 
+
 <img src="images/Screenshot%20(366).png" width="250" height="250"> <img src="images/Screenshot%20(367).png" width="250" height="250">
+
 HUMAN PLAYER
+
 <img src="images/Screenshot%20(368).png" width="250" height="250"> <img src="images/Screenshot%20(369).png" width="250" height="250">
+
+RESULTS OF JUMAN PLAYER 
+
         <img src="images/Screenshot%20(370).png" width="250" height="250">
 
 ##### References 
