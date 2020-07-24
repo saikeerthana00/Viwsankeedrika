@@ -3,7 +3,7 @@
 
 Viwsankeedrika is an online Tic-Tac-Toe game built by four IIT Kharagpur students.
 
->Shriee Viwek - Shrieeviwek - shrieeviwek3006@gmail.com
+ Shriee Viwek - Shrieeviwek - shrieeviwek3006@gmail.com
 
  Sai Keerthana - saikeerthana00 - saikeerthana00@gmail.com
 
