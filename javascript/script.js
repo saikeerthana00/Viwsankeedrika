@@ -1,8 +1,6 @@
-var origBoard;
-var id;
+//Declaring variables common in both type of games
 
-var aiPlayer = 'O';
-var huPlayer = 'X';
+var origBoard;
 const winCombos = [
 	[0, 1, 2],
 	[3, 4, 5],
@@ -14,7 +12,15 @@ const winCombos = [
 	[6, 4, 2]
 ];
 
+// Declaring variables for playing with AI
+
+var id;
+var aiPlayer = 'O';
+var huPlayer = 'X';
 const cells = document.querySelectorAll('.cell');
+
+//Declaring variables for playing with human
+
 var x;
 var currentPlayer = 'X';
 const statusDisplay = document.querySelector('.game--status');
@@ -23,12 +29,16 @@ let gameActive = true;
 let gameState = ["", "", "", "", "", "", "", "", ""];
 let player1_score = 0;
 let player2_score = 0;
-
-var dt1, dt2;
 const winningMessage = () => `Player ${currentPlayer} has won!`;
 const drawMessage = () => `Game ended in a draw!`;
 const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
 const score_Display = () => `Score ${player1_score}-${player2_score}`;
+
+//Variables for finding the time taken to draw the match with AI
+
+var dt1, dt2;
+
+//Function to set choices X or O
 
 function setoption(val, type) {
 	if (type == 4) {
@@ -49,6 +59,8 @@ function setoption(val, type) {
 	}
 }
 
+//Function to start game with AI
+
 function startGame() {
 	document.querySelector(".endgame").style.display = "none";
 	statusDisplay.innerHTML = "";
@@ -57,7 +69,6 @@ function startGame() {
 	player1_score = 0;
 	dt1 = new Date();
 	origBoard = Array.from(Array(9).keys());
-
 	for (var i = 0; i < cells.length; i++) {
 		cells[i].innerText = '';
 		cells[i].style.removeProperty('background-color');
@@ -65,6 +76,7 @@ function startGame() {
 	}
 }
 
+//Supporting functions for playing with AI
 
 function onturnClick(square) {
 	if (typeof origBoard[square.target.id] == 'number') {
@@ -72,14 +84,12 @@ function onturnClick(square) {
 		if (!checkTie()) turn(bestSpot(), aiPlayer);
 	}
 }
-
 function turn(squareId, player) {
 	origBoard[squareId] = player;
 	document.getElementById(squareId).innerText = player;
 	let gameWon = checkWin(origBoard, player)
 	if (gameWon) gameOver(gameWon)
 }
-
 function checkWin(board, player) {
 	let plays = board.reduce((a, e, i) =>
 		(e === player) ? a.concat(i) : a, []);
@@ -95,7 +105,6 @@ function checkWin(board, player) {
 	}
 	return gameWon;
 }
-
 function gameOver(gameWon) {
 	for (let index of winCombos[gameWon.index]) {
 		document.getElementById(index).style.backgroundColor =
@@ -106,12 +115,6 @@ function gameOver(gameWon) {
 	}
 	declareWinner(gameWon.player == huPlayer ? "You win!" : "You lose.");
 }
-
-function declareWinner(who) {
-	document.querySelector(".endgame").style.display = "block";
-	document.querySelector(".endgame .text").innerText = who;
-}
-
 function emptySquares() {
 	return origBoard.filter(s => typeof s == 'number');
 }
@@ -119,7 +122,6 @@ function emptySquares() {
 function bestSpot() {
 	return minimax(origBoard, aiPlayer).index;
 }
-
 function checkTie() {
 	if (emptySquares().length == 0) {
 		for (var i = 0; i < cells.length; i++) {
@@ -141,6 +143,8 @@ function checkTie() {
 	}
 	return false;
 }
+
+//Minmax algorithm to find the best move
 
 function minimax(newBoard, player) {
 	var availSpots = emptySquares();
@@ -199,6 +203,16 @@ function minimax(newBoard, player) {
 	return moves[bestMove];
 }
 
+//End of MinMax Algorithm
+
+//Function for declaring the winner
+
+function declareWinner(who) {
+	document.querySelector(".endgame").style.display = "block";
+	document.querySelector(".endgame .text").innerText = who;
+}
+
+//Function to start game between two players
 
 function handlestartGame() {
 	gameActive = true;
@@ -216,22 +230,9 @@ function handlestartGame() {
 		cells[i].style.removeProperty('background-color');
 		cells[i].addEventListener('click', handleCellClick, false)
 	}
-
 }
 
-function FinishGame() {
-	score.innerHTML = score_Display();
-	if (player1_score > player2_score)
-		winner = "Player 1 Wins";
-	else if (player2_score > player1_score)
-		winner = "Player 2 Wins";
-	else
-		winner = "Both are having equal Score";
-	declareWinner(winner);
-	player1_score = 0;
-	player2_score = 0;
-
-}
+//Supporting functions for game between two players
 
 function handleCellClick(clickedCellEvent) {
 	const clickedCell = clickedCellEvent.target;
@@ -244,18 +245,14 @@ function handleCellClick(clickedCellEvent) {
 	handleCellPlayed(clickedCell, clickedCellIndex);
 	handleResultValidation();
 }
-
-
 function handleCellPlayed(clickedCell, clickedCellIndex) {
 	gameState[clickedCellIndex] = currentPlayer;
 	clickedCell.innerHTML = currentPlayer;
 }
-
 function handlePlayerChange() {
 	currentPlayer = currentPlayer === "X" ? "O" : "X";
 	statusDisplay.innerHTML = currentPlayerTurn();
 }
-
 function handleResultValidation() {
 	let roundWon = false;
 	for (let i = 0; i <= 7; i++) {
@@ -293,4 +290,19 @@ function handleResultValidation() {
 	}
 
 	handlePlayerChange();
+}
+
+//Function to declare the winner after playing few games between 2 players
+
+function FinishGame() {
+	score.innerHTML = score_Display();
+	if (player1_score > player2_score)
+		winner = "Player 1 Wins";
+	else if (player2_score > player1_score)
+		winner = "Player 2 Wins";
+	else
+		winner = "Both are having equal Score";
+	declareWinner(winner);
+	player1_score = 0;
+	player2_score = 0;
 }
