@@ -93,6 +93,8 @@ After completion of each game with computer the time taken will also be displaye
 Now you can have scientific tournaments with your crew members even in the AI mode of game.
 ### 5) Choose your choice
 The player has the flexibility to choose his representation in the game, either X or O.
+## Flow of the project
+![](images/Screenshot (366).png)
 
 ##### References 
 https://www.freecodecamp.org/news/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37/
