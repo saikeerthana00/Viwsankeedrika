@@ -96,7 +96,7 @@ The player has the flexibility to choose his representation in the game, either 
 ## Flow of the project
 ### AI mode 
 
-<img src="images/Screenshot%20(366).png" width="400" height="400">   --->   <img src="images/Screenshot%20(367).png" width="400" height="400">
+<img src="images/Screenshot%20(366).png" width="350" height="350">   --->   <img src="images/Screenshot%20(367).png" width="350" height="350">
 
 ### HUMAN PLAYER
 
