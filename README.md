@@ -77,8 +77,8 @@ In this way, this function returns the best move of the computer.
 
 ### 4) Time Display
 After completion of each game with computer the time taken will also be displayed if the result is tie.
-Now you can have scientific tournaments with your crew members even in the AI mode of play.
-### 5) Choose your choice:
+Now you can have scientific tournaments with your crew members even in the AI mode of game.
+### 5) Choose your choice
 The player has the flexibility to choose his representation in the game, either X or O.
 
 ##### References 
