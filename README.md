@@ -94,17 +94,17 @@ Now you can have scientific tournaments with your crew members even in the AI mo
 ### 5) Choose your choice
 The player has the flexibility to choose his representation in the game, either X or O.
 ## Flow of the project
-AI mode 
+### AI mode 
 
-<img src="images/Screenshot%20(366).png" width="250" height="250"> <img src="images/Screenshot%20(367).png" width="250" height="250">
+<img src="images/Screenshot%20(366).png" width="300" height="300"> <img src="images/Screenshot%20(367).png" width="300" height="300">
 
-HUMAN PLAYER
+### HUMAN PLAYER
 
-<img src="images/Screenshot%20(368).png" width="250" height="250"> <img src="images/Screenshot%20(369).png" width="250" height="250">
+<img src="images/Screenshot%20(368).png" width="300" height="300"> <img src="images/Screenshot%20(369).png" width="300" height="300">
 
-RESULTS OF JUMAN PLAYER 
+### RESULTS OF HUMAN PLAYER - FINISH GAME 
 
- <img src="images/Screenshot%20(370).png" width="250" height="250">
+ <img src="images/Screenshot%20(370).png" width="300" height="300">
 
 ##### References 
 https://www.freecodecamp.org/news/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37/
