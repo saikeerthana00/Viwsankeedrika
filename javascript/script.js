@@ -1,8 +1,8 @@
 var origBoard;
 var id;
 
-var aiPlayer='O';
-var huPlayer='X';
+var aiPlayer = 'O';
+var huPlayer = 'X';
 const winCombos = [
 	[0, 1, 2],
 	[3, 4, 5],
@@ -16,39 +16,37 @@ const winCombos = [
 
 const cells = document.querySelectorAll('.cell');
 var x;
-var currentPlayer='X';
+var currentPlayer = 'X';
 const statusDisplay = document.querySelector('.game--status');
 const score = document.querySelector('.Score');
 let gameActive = true;
 let gameState = ["", "", "", "", "", "", "", "", ""];
-let player1_score=0;
-let player2_score=0;
+let player1_score = 0;
+let player2_score = 0;
 
-var dt1,dt2;
+var dt1, dt2;
 const winningMessage = () => `Player ${currentPlayer} has won!`;
 const drawMessage = () => `Game ended in a draw!`;
 const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
-const score_Display = () =>`Score ${player1_score}-${player2_score}`;
-function setoption(val,type){
-	if(type==4){
-		if(val==1){
-			currentPlayer='X';
-			}
-			else{
-			currentPlayer='O';
-			}
-  }
-  else{
-	if(val==1){
-		huPlayer = 'X';
-		aiPlayer='O';
+const score_Display = () => `Score ${player1_score}-${player2_score}`;
+
+function setoption(val, type) {
+	if (type == 4) {
+		if (val == 1) {
+			currentPlayer = 'X';
+		} else {
+			currentPlayer = 'O';
 		}
-		else{
-		huPlayer='O';
-		aiPlayer='X';
+	} else {
+		if (val == 1) {
+			huPlayer = 'X';
+			aiPlayer = 'O';
+		} else {
+			huPlayer = 'O';
+			aiPlayer = 'X';
 		}
-	
-  }
+
+	}
 }
 // function diff_minutes(dt2, dt1) 
 //  {
@@ -56,18 +54,17 @@ function setoption(val,type){
 //   var diff =(dt2.getTime() - dt1.getTime()) / 1000;
 //   diff /= 60;
 //   return Math.abs(Math.round(diff));
-  
+
 //  }
 function startGame() {
-	document.querySelector(".endgame").style.display = "none";	
-    statusDisplay.innerHTML="";
-	score.innerHTML="";
-	player2_score=0;
-	player1_score=0;
-	
+	document.querySelector(".endgame").style.display = "none";
+	statusDisplay.innerHTML = "";
+	score.innerHTML = "";
+	player2_score = 0;
+	player1_score = 0;
 	dt1 = new Date();
 	origBoard = Array.from(Array(9).keys());
-	
+
 	for (var i = 0; i < cells.length; i++) {
 		cells[i].innerText = '';
 		cells[i].style.removeProperty('background-color');
@@ -91,12 +88,15 @@ function turn(squareId, player) {
 }
 
 function checkWin(board, player) {
-	let plays = board.reduce((a, e, i) => 
+	let plays = board.reduce((a, e, i) =>
 		(e === player) ? a.concat(i) : a, []);
 	let gameWon = null;
 	for (let [index, win] of winCombos.entries()) {
 		if (win.every(elem => plays.indexOf(elem) > -1)) {
-			gameWon = {index: index, player: player};
+			gameWon = {
+				index: index,
+				player: player
+			};
 			break;
 		}
 	}
@@ -124,7 +124,7 @@ function emptySquares() {
 }
 
 function bestSpot() {
-    return minimax(origBoard, aiPlayer).index;
+	return minimax(origBoard, aiPlayer).index;
 }
 
 function checkTie() {
@@ -135,13 +135,14 @@ function checkTie() {
 		}
 		dt2 = new Date();
 		var res = Math.abs(dt1 - dt2) / 1000;
-         // get total days between two dates
-		var hours = Math.floor(res / 3600) % 24;        
+		// get total days between two dates
+		var hours = Math.floor(res / 3600) % 24;
 		// get minutes
 		var minutes = Math.floor(res / 60) % 60;
 		// get seconds
-		var seconds = res % 60; 
-		declareWinner("Tie Game! and time taken is " + hours + ":" + minutes +":"+seconds);
+		var seconds = res % 60;
+		var num = minutes * 60 + seconds;
+		declareWinner("Tie Game! and time taken is " + num.toFixed(2) + " seconds");
 
 		return true;
 	}
@@ -152,11 +153,17 @@ function minimax(newBoard, player) {
 	var availSpots = emptySquares();
 
 	if (checkWin(newBoard, huPlayer)) {
-		return {score: -10};
+		return {
+			score: -10
+		};
 	} else if (checkWin(newBoard, aiPlayer)) {
-		return {score: 10};
+		return {
+			score: 10
+		};
 	} else if (availSpots.length === 0) {
-		return {score: 0};
+		return {
+			score: 0
+		};
 	}
 	var moves = [];
 	for (var i = 0; i < availSpots.length; i++) {
@@ -178,9 +185,9 @@ function minimax(newBoard, player) {
 	}
 
 	var bestMove;
-	if(player === aiPlayer) {
+	if (player === aiPlayer) {
 		var bestScore = -10000;
-		for(var i = 0; i < moves.length; i++) {
+		for (var i = 0; i < moves.length; i++) {
 			if (moves[i].score > bestScore) {
 				bestScore = moves[i].score;
 				bestMove = i;
@@ -188,7 +195,7 @@ function minimax(newBoard, player) {
 		}
 	} else {
 		var bestScore = 10000;
-		for(var i = 0; i < moves.length; i++) {
+		for (var i = 0; i < moves.length; i++) {
 			if (moves[i].score < bestScore) {
 				bestScore = moves[i].score;
 				bestMove = i;
@@ -200,102 +207,97 @@ function minimax(newBoard, player) {
 }
 
 
-
-
-
-
-
 function handleRestartGame() {
-  gameActive = true;
-  gameState = ["", "", "", "", "", "", "", "", ""];
-  statusDisplay.innerHTML = currentPlayerTurn();
-  score.innerHTML=score_Display();
-  document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
-  document.querySelector('.endgame').style.display = 'none';
-  origBoard = Array.from(Array(9).keys());
-  
-  // console.table(origBoard);
-  // console.log(cells);
-  for (let i = 0; i < cells.length; i++) {
-    cells[i].innerText = '';
-    cells[i].style.removeProperty('background-color');
-    cells[i].addEventListener('click', handleCellClick, false)
-  }
+	gameActive = true;
+	gameState = ["", "", "", "", "", "", "", "", ""];
+	statusDisplay.innerHTML = currentPlayerTurn();
+	score.innerHTML = score_Display();
+	document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
+	document.querySelector('.endgame').style.display = 'none';
+	origBoard = Array.from(Array(9).keys());
+
+	// console.table(origBoard);
+	// console.log(cells);
+	for (let i = 0; i < cells.length; i++) {
+		cells[i].innerText = '';
+		cells[i].style.removeProperty('background-color');
+		cells[i].addEventListener('click', handleCellClick, false)
+	}
 
 }
- function FinishGame(){
-	score.innerHTML=score_Display();
-	if(player1_score>player2_score)
-	winner="Player 1 Wins";
-	else if(player2_score>player1_score)
-	winner="Player 2 Wins";
+
+function FinishGame() {
+	score.innerHTML = score_Display();
+	if (player1_score > player2_score)
+		winner = "Player 1 Wins";
+	else if (player2_score > player1_score)
+		winner = "Player 2 Wins";
 	else
-	winner="Both are having equal Score";
+		winner = "Both are having equal Score";
 	declareWinner(winner);
-	player1_score=0;
-	player2_score=0;
-	
- }
+	player1_score = 0;
+	player2_score = 0;
+
+}
+
 function handleCellClick(clickedCellEvent) {
-  const clickedCell = clickedCellEvent.target;
-  const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
+	const clickedCell = clickedCellEvent.target;
+	const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
 
-  if (gameState[clickedCellIndex] !== "" || !gameActive) {
-      return;
-  }
+	if (gameState[clickedCellIndex] !== "" || !gameActive) {
+		return;
+	}
 
-  handleCellPlayed(clickedCell, clickedCellIndex);
-  handleResultValidation();
+	handleCellPlayed(clickedCell, clickedCellIndex);
+	handleResultValidation();
 }
 
 
 function handleCellPlayed(clickedCell, clickedCellIndex) {
-    gameState[clickedCellIndex] = currentPlayer;
-    clickedCell.innerHTML = currentPlayer;
+	gameState[clickedCellIndex] = currentPlayer;
+	clickedCell.innerHTML = currentPlayer;
 }
 
 function handlePlayerChange() {
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
-    statusDisplay.innerHTML = currentPlayerTurn();
+	currentPlayer = currentPlayer === "X" ? "O" : "X";
+	statusDisplay.innerHTML = currentPlayerTurn();
 }
 
 function handleResultValidation() {
-    let roundWon = false;
-    for (let i = 0; i <= 7; i++) {
-        const winCondition = winCombos[i];
-        let a = gameState[winCondition[0]];
-        let b = gameState[winCondition[1]];
-        let c = gameState[winCondition[2]];
-        if (a === '' || b === '' || c === '') {
-            continue;
-        }
-        if (a === b && b === c) {
-            roundWon = true;
-            break
-        }
-    }
+	let roundWon = false;
+	for (let i = 0; i <= 7; i++) {
+		const winCondition = winCombos[i];
+		let a = gameState[winCondition[0]];
+		let b = gameState[winCondition[1]];
+		let c = gameState[winCondition[2]];
+		if (a === '' || b === '' || c === '') {
+			continue;
+		}
+		if (a === b && b === c) {
+			roundWon = true;
+			break
+		}
+	}
 
-    if (roundWon) {
-		if(currentPlayer=="X")
-		 player1_score+=1;
-		 else
-		 player2_score+=1;
-		 score.innerHTML=score_Display();
+	if (roundWon) {
+		if (currentPlayer == "X")
+			player1_score += 1;
+		else
+			player2_score += 1;
+		score.innerHTML = score_Display();
 		declareWinner(winningMessage());
-		statusDisplay.innerHTML ="";
-        gameActive = false;
-        return;
-    }
-
-    let roundDraw = !gameState.includes("");
-    if (roundDraw) {
-		declareWinner(drawMessage()) ;
 		statusDisplay.innerHTML = "";
-        gameActive = false;
-        return;
-    }
+		gameActive = false;
+		return;
+	}
 
-    handlePlayerChange();
+	let roundDraw = !gameState.includes("");
+	if (roundDraw) {
+		declareWinner(drawMessage());
+		statusDisplay.innerHTML = "";
+		gameActive = false;
+		return;
+	}
+
+	handlePlayerChange();
 }
-
-
