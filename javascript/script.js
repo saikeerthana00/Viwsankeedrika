@@ -48,14 +48,7 @@ function setoption(val, type) {
 
 	}
 }
-// function diff_minutes(dt2, dt1) 
-//  {
 
-//   var diff =(dt2.getTime() - dt1.getTime()) / 1000;
-//   diff /= 60;
-//   return Math.abs(Math.round(diff));
-
-//  }
 function startGame() {
 	document.querySelector(".endgame").style.display = "none";
 	statusDisplay.innerHTML = "";
@@ -207,7 +200,7 @@ function minimax(newBoard, player) {
 }
 
 
-function handleRestartGame() {
+function handlestartGame() {
 	gameActive = true;
 	gameState = ["", "", "", "", "", "", "", "", ""];
 	statusDisplay.innerHTML = currentPlayerTurn();
