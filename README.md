@@ -94,7 +94,7 @@ Now you can have scientific tournaments with your crew members even in the AI mo
 ### 5) Choose your choice
 The player has the flexibility to choose his representation in the game, either X or O.
 ## Flow of the project
-![](images/Screenshot%20(366).png|100x100)
+![](images/Screenshot%20(366).png|100*100)
 
 ##### References 
 https://www.freecodecamp.org/news/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37/
