@@ -2,7 +2,7 @@
 #### Microsoft(The mars colonization program)
 
 Viwsankeedrika is an online Tic-Tac-Toe game built by four IIT Kharagpur students.
-# 
+------- 
 -Shriee Viwek
 -Sai Keerthana 
 -Sanjana Reddy
