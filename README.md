@@ -104,7 +104,7 @@ HUMAN PLAYER
 
 RESULTS OF JUMAN PLAYER 
 
-        <img src="images/Screenshot%20(370).png" width="250" height="250">
+ <img src="images/Screenshot%20(370).png" width="250" height="250">
 
 ##### References 
 https://www.freecodecamp.org/news/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37/
