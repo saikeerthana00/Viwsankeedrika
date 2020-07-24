@@ -100,11 +100,11 @@ The player has the flexibility to choose his representation in the game, either 
 
 ### HUMAN PLAYER
 
-<img src="images/Screenshot%20(368).png" width="400" height="400">   --->   <img src="images/Screenshot%20(369).png" width="400" height="400">
+<img src="images/Screenshot%20(368).png" width="350" height="350">   --->   <img src="images/Screenshot%20(369).png" width="350" height="350">
 
 ### RESULTS OF HUMAN PLAYER - FINISH GAME 
 
- <img src="images/Screenshot%20(370).png" width="400" height="400">
+ <img src="images/Screenshot%20(370).png" width="350" height="350">
 
 ##### References 
 https://www.freecodecamp.org/news/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37/
